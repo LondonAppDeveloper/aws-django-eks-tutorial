@@ -1,0 +1,21 @@
+{% extends "publish/base.html" %}
+
+{% block head %}
+  <title>Publish home page</title>
+{% endblock %}
+
+{% block body %}
+  <h1>Publish home page</h1>
+    <div class="form-wrapper">
+      <form action="{% url 'index' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <ul>
+      {% for post in posts %}
+        <li><a href="{% url 'view-post' post_id=post.id %}">{{ post.title }} ({{ post.author_name }})</a></li>
+      {% endfor %}
+    </ul>
+{% endblock %}

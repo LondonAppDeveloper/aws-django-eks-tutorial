@@ -1,0 +1,40 @@
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - ./app:/app
+      - dev-app-data:/vol/web
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=1
+      - DB_HOST=database
+      - DB_NAME=django-dev-db
+      - DB_USER=devuser
+      - DB_PASS=devpassword123
+
+    ports:
+      - 8000:8000
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    image: postgres:12-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=django-dev-db
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=devpassword123
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "django-dev-db", "-U", "devuser"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  dev-db-data:
+  dev-app-data:

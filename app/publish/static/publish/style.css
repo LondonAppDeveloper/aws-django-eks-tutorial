@@ -1,0 +1,47 @@
+
+body {
+  background-color: #c7c7c7;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.page-wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-wrapper {
+  border-radius: 5px;
+  background-color: #e8e8e8;
+  padding: 20px;
+}
+
+input[type=file] {
+  width: 100%;
+  margin: 5px 0;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  border: 1px solid #a5a5a5;
+  border-radius: 3px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 5px 0;
+}
+
+label {
+  margin: 10px 0;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: rgb(0, 136, 255);
+  color: #fff;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+}
+
+img {
+  max-width: 400px;
+}

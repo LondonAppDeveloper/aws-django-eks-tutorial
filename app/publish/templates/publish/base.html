@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <head>
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'publish/style.css' %}" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>
