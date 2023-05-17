@@ -1,5 +1,5 @@
 
 variable "region" {
   description = "AWS region to deploy resources to"
-  default = "eu-west-2"
+  default     = "eu-west-2"
 }
