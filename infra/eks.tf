@@ -27,6 +27,10 @@ module "eks" {
       min_size     = 1
       max_size     = 3
       desired_size = 1
+
+      labels = {
+        Environment = "Dev"
+      }
     }
   }
 }
