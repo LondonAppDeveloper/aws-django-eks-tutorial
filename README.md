@@ -22,3 +22,4 @@ Starting code for [How to Deploy Django to Kubernetes: Part 2](https://youtube.c
  * [Kubernetes docs for Deploying the Dashboard UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui)
  * [Local Dashboard Proxy URL](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
  * [Docs for installing the Amazon EFS CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html)
+ * [ECR private registry authentication docs](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)
