@@ -22,7 +22,7 @@ resource "aws_security_group" "allow-efs" {
     from_port   = 2049
     to_port     = 2049
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = module.vpc.private_subnets_cidr_blocks
   }
 
   tags = {
