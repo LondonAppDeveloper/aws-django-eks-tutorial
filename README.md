@@ -11,7 +11,7 @@ Starting code for [How to Deploy Django to Kubernetes: Part 2](https://youtube.c
 
 ## Requirements
 
- * [Terraform](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform
+ * [Terraform](https://developer.hashicorp.com/terraform/downloads?product_intent=terraform)
  * [aws-vault](https://github.com/99designs/aws-vault) for AWS authentication
  * [Docker](https://docs.docker.com/engine/install/) for building and pushing Docker images 
  * [Kubernetes CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
