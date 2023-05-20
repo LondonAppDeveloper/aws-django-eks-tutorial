@@ -13,6 +13,7 @@ spec:
   type: LoadBalancer
 
 ---
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -21,13 +22,13 @@ metadata:
     app: django
 spec:
   accessModes:
-    - ReadWriteMany
-  storageClassName: efs-sc
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 10Gi
 
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -52,7 +53,9 @@ spec:
           persistentVolumeClaim:
             claimName: django-app-pvc
       containers:
-        - image: 875086615781.dkr.ecr.eu-west-2.amazonaws.com/django-k8s-app:latest # Change this to your ECR repo for app
+
+        - image: django-app:latest
+          imagePullPolicy: Never
           name: app
           ports:
             - containerPort: 8080
@@ -62,13 +65,13 @@ spec:
               mountPath: /vol/web
           env:
             - name: DB_HOST
-              value: django-k8s-db.chelb620du2o.eu-west-2.rds.amazonaws.com # Change this to your RDS endpoint
+              value: django-postgres
             - name: DB_NAME
-              value: djangoproject
+              value: djangodb
             - name: DB_USER
               value: djangouser
             - name: ALLOWED_HOSTS
-              value: "a7c9e85ef89a941f68bd8d8917cd4b7d-1489129437.eu-west-2.elb.amazonaws.com" # Change this to your service host
+              value: '127.0.0.1,localhost'
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
@@ -80,7 +83,8 @@ spec:
                   name: django
                   key: secret
 
-        - image: 875086615781.dkr.ecr.eu-west-2.amazonaws.com/django-k8s-proxy:latest # Change this to your ECR repo for proxy
+        - image: django-proxy:latest
+          imagePullPolicy: Never
           name: proxy
           ports:
             - containerPort: 8000
@@ -90,6 +94,6 @@ spec:
               mountPath: /vol/web
           env:
             - name: APP_HOST
-              value: "127.0.0.1"
+              value: '127.0.0.1'
             - name: APP_PORT
-              value: "8080"
+              value: '8080'
