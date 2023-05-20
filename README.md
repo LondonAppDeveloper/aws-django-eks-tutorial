@@ -1,6 +1,6 @@
 # Deploy Django to Kubernetes on AWS (EKS) Finished Code
 
-Starting code for [How to Deploy Django to Kubernetes: Part 2](https://youtube.com/live/X_00g6HQwvI) YouTube live stream.
+Code for [How to Deploy Django to Kubernetes: Part 2](https://youtube.com/live/X_00g6HQwvI) YouTube live stream.
 
 ## What's covered?
 
