@@ -12,6 +12,7 @@ Starting code for [How to Deploy Django to Kubernetes: Part 2](https://youtube.c
 
 ## Resources
 
+ * [Starting Point](https://github.com/LondonAppDeveloper/aws-django-eks-tutorial-starter) - this is the project we are starting from in the tutorial
  * [Terraform .gitignore file template](https://github.com/github/gitignore/blob/main/Terraform.gitignore)
  * [Terraform VPC AWS module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest)
  * [Terraform RDS AWS module](https://registry.terraform.io/modules/terraform-aws-modules/rds/aws/latest)
